@@ -1,0 +1,41 @@
+:root{--butter:#f7c948;--cream:#fff3d0;--red:#e5472b;--teal:#1d7f72;--blue:#6f8fb5;--ink:#1c1a16}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:'Space Mono',monospace;background-color:var(--cream);
+background-image:linear-gradient(90deg,rgba(247,201,72,.35) 50%,transparent 50%),linear-gradient(rgba(247,201,72,.35) 50%,transparent 50%);background-size:48px 48px}
+header{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;padding:12px 20px;background:var(--butter);border-bottom:4px solid var(--ink)}
+.logo{font-family:'Bowlby One';font-size:26px}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+.marquee{overflow:hidden;white-space:nowrap;background:var(--ink);color:var(--butter);border-bottom:4px solid var(--ink);font-weight:700}
+.marquee span{display:inline-block;padding:6px 0;animation:m 22s linear infinite}
+@keyframes m{to{transform:translateX(-50%)}}
+main{max-width:1100px;margin:auto;padding:20px}
+.mega{font-family:'Bowlby One';font-size:clamp(48px,13vw,150px);line-height:.9;margin:10px 0 24px;color:var(--red);text-shadow:5px 5px 0 var(--ink);word-break:break-word}
+button,select,input:not([type=range]){font:700 14px 'Space Mono',monospace;border:3px solid var(--ink);border-radius:0;padding:10px 14px;background:var(--cream);color:var(--ink)}
+button{cursor:pointer;text-transform:uppercase;background:var(--butter);box-shadow:4px 4px 0 var(--ink)}
+button:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+button.on{background:var(--red);color:var(--cream)}
+button.alt{background:var(--blue)}
+button.danger{background:var(--red);color:var(--cream)}
+.box{background:var(--cream);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:14px;margin-bottom:22px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row input[type=text],.row input:not([type]){flex:1}.grow{flex:1;min-width:180px}
+.sticky{position:sticky;top:8px;z-index:5;background:var(--butter)}
+.drop{display:flex;flex-direction:column;gap:6px;align-items:center;padding:34px 14px;margin-bottom:22px;background:var(--teal);color:var(--cream);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);cursor:pointer;text-align:center}
+.drop b{font-family:'Bowlby One';font-size:clamp(20px,4vw,34px);font-weight:400}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.tile{aspect-ratio:3/4;background:var(--butter);border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);overflow:hidden;cursor:pointer}
+.tile img{width:100%;height:100%;object-fit:cover;display:block}
+.tile.on{outline:6px solid var(--red);outline-offset:-6px}
+.folders{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.fold{position:relative;padding:20px;min-height:150px;border:3px solid var(--ink);box-shadow:7px 7px 0 var(--ink);cursor:pointer;display:flex;flex-direction:column;justify-content:space-between}
+.fold b{font-family:'Bowlby One';font-weight:400;font-size:28px;word-break:break-word}
+.fold span{font-family:'Bowlby One';font-size:48px}
+.fold i{position:absolute;top:8px;right:12px;font-style:normal;font-weight:700}
+.c0{background:var(--butter)}.c1{background:var(--teal);color:var(--cream)}.c2{background:var(--red);color:var(--cream)}.c3{background:var(--blue)}
+.empty{text-align:center;font-size:18px;padding:40px}
+.more{display:block;margin:30px auto}
+.lightbox{position:fixed;inset:0;background:rgba(28,26,22,.92);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
+.lightbox img{max-width:100%;max-height:100%;border:4px solid var(--cream)}
+.auth{max-width:480px;padding-top:40px}.tag{font-weight:700;margin-bottom:24px}
+.auth .box{display:flex;flex-direction:column;gap:12px}
