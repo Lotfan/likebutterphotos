@@ -78,15 +78,16 @@ function Vault({ user }) {
     for (let i = 0; i < files.length; i++) {
       setStatus(`Saving ${i + 1}/${files.length}…`);
       const id = crypto.randomUUID(), base = `${user.id}/${id}`;
-      const full = await shrink(files[i], 1600, 0.82), th = await shrink(files[i], 320, 0.8);
+      const full = files[i], th = await shrink(files[i], 320, 0.8);
+      const ext = (files[i].name.split('.').pop() || 'jpg').toLowerCase();
       let vec = null, folder_id = null;
       try {
         vec = await embed(th, p => p.status === 'progress' && setStatus(`Downloading AI brain ${Math.round(p.progress)}% (once)`));
         folder_id = suggest(vec, ex, strict);
       } catch (err) { console.error(err); }
-      await sb.storage.from('vault').upload(base + '.jpg', full, { contentType: 'image/jpeg' });
+      await sb.storage.from('vault').upload(`${base}.${ext}`, full, { contentType: files[i].type || 'image/jpeg' });
       await sb.storage.from('vault').upload(base + '_t.jpg', th, { contentType: 'image/jpeg' });
-      await sb.from('images').insert({ id, folder_id, path: base + '.jpg', thumb_path: base + '_t.jpg', name: files[i].name, embedding: vec });
+      await sb.from('images').insert({ id, folder_id, path: `${base}.${ext}`, thumb_path: base + '_t.jpg', name: files[i].name, embedding: vec });
     }
     setStatus('Done ✓'); e.target.value = ''; load();
   }
