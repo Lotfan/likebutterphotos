@@ -1,4 +1,4 @@
-import { AutoProcessor, CLIPVisionModelWithProjection, RawImage, env } from '@xenova/transformers';
+import { AutoProcessor, CLIPVisionModelWithProjection, RawImage, env } from '@huggingface/transformers';
 env.allowLocalModels = false;
 const ID = 'Xenova/clip-vit-base-patch32';
 let proc, model;
